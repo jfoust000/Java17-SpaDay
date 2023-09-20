@@ -22,7 +22,7 @@ public class UserController {
 
     }
     @PostMapping("add")
-    public String processAddUserForm(@ModelAttribute @Valid User user, Errors errors, Model model) {
+    public String processAddUserForm(@Valid User user, Errors errors, Model model) {
 
         if (errors.hasErrors()) {
 

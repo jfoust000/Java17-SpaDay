@@ -1,19 +1,21 @@
 package org.launchcode.models;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class User {
     @NotBlank(message = "Username is required.")
-    @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters long.")
+    @Size(min = 5, max = 15, message = "Username must be between 5 and 15 characters long.")
     private String userName;
-    @NotBlank(message = "Email cannot be blank.")
     @Email(message = "Invalid email. Try again.")
     private String email;
     @NotBlank(message = "Password required.")
+    @Min(6)
     private String password;
     @NotBlank(message = "Verify Password required.")
+    @Min(6)
     private String verifyPassword;
     private boolean passwordsMatch;
 

@@ -31,7 +31,7 @@
             <input type="password" th:field="${user.verifyPassword}" class="form-control">
         </label>
         <p class="error" th:errors="${user.verifyPassword}"></p>
-        <p th:unless="${isPasswordsMatch}" th:text="${passwordsDoNotMatchError}"></p>
+        <p th:unless="${isPasswordsMatch}" th:text="${passwordsDoNotMatchError}" class="error"></p>
         <br>
         <input type="submit" value="Submit">
     </form>
