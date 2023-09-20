@@ -2,31 +2,39 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
+    <link href="/styles.css" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
+<div class="form-group">
     <form method="post" action="/user/add">
         <label>
             Username:
-            <input type="text" th:field="${user.userName}">
+            <input type="text" th:field="${user.userName}" class="form-control">
         </label>
+        <p class="error" th:errors="${user.userName}"></p>
         <br><br>
         <label>
             Email:
-            <input type="email" th:field="${user.email}">
+            <input type="email" th:field="${user.email}" class="form-control">
         </label>
+        <p class="error" th:errors="${user.email}"></p>
         <br><br>
         <label>
             Password:
-            <input type="password" th:field="${user.password}">
+            <input type="password" th:field="${user.password}" class="form-control">
         </label>
+        <p class="error" th:errors="${user.password}"></p>
         <br><br>
         <label>
             Verify Password:
-            <input type="password" name="verify">
+            <input type="password" th:field="${user.verifyPassword}" class="form-control">
         </label>
-        <br><br>
+        <p class="error" th:errors="${user.verifyPassword}"></p>
+        <p th:unless="${isPasswordsMatch}" th:text="${passwordsDoNotMatchError}"></p>
+        <br>
         <input type="submit" value="Submit">
     </form>
+</div>
 </body>
 </html>
